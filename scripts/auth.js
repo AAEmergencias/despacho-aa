@@ -75,24 +75,20 @@ async function login() {
 // ======================================
 function redirectByRole(role) {
 
-    // Ruta base del repositorio
-    const base = "./";
-
     switch (role) {
         case "admin":
-            window.location.href = base + "admin/index.html";
+            window.location.href = "./admin/index.html";
             break;
         case "supervisor":
-            window.location.href = base + "supervisor/index.html";
+            window.location.href = "./supervisor/index.html";
             break;
         case "operador":
-            window.location.href = base + "operator/index.html";
+            window.location.href = "./operator/index.html";
             break;
         default:
-            window.location.href = base + "public/index.html";
+            window.location.href = "./public/index.html";
     }
 }
-
 // ======================================
 // PROTEGER RUTAS SEGÚN ROL
 // ======================================
