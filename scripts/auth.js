@@ -1,1 +1,2 @@
-function login(){ alert('login placeholder'); }
+
+async function login(){ alert('login FASE2 placeholder'); }
