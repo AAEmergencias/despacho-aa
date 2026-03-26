@@ -1,2 +1,1 @@
-
-async function login(){ alert('login FASE2 placeholder'); }
+// Auth logic placeholder for FASE3
