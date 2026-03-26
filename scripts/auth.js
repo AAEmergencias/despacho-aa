@@ -23,6 +23,7 @@ function getSavedSession() {
 function getSavedRole() {
     return localStorage.getItem("sb_role");
 }
+
 // =======================
 // LOGIN
 // =======================
@@ -63,6 +64,7 @@ async function login() {
     // Redirigir según rol
     redirectByRole(role);
 }
+
 // =======================
 // REDIRECCIÓN POR ROL
 // =======================
@@ -81,6 +83,7 @@ function redirectByRole(role) {
             window.location.href = "/public/index.html";
     }
 }
+
 // =============================
 // PROTEGER RUTAS
 // =============================
@@ -90,6 +93,15 @@ async function protectRoute(allowedRoles = []) {
 
     if (!session || !role) {
         window.location.href = "/login.html";
+        return;
+    }
+
+    if (!allowedRoles.includes(role)) {
+        window.location.href = "/public/index.html";
+        return;
+    }
+}
+
 // =============================
 // LOGOUT
 // =============================
@@ -98,4 +110,3 @@ async function logout() {
     localStorage.clear();
     window.location.href = "/login.html";
 }
-      
