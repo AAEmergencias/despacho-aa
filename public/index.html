@@ -1,1 +1,22 @@
-<h1>Vista Pública</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='../css/cad_dark.css'>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+<div id='layout'>
+  <div id='sidebar'>Vista Pública</div>
+  <div id='map'></div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var map = L.map('map').setView([-33.45, -70.66], 12);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    attribution: '&copy; CARTO'
+}).addTo(map);
+</script>
+</body>
+</html>
