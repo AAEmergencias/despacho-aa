@@ -18,9 +18,8 @@
 
 <body>
 
-<button onclick="toggleMapTheme()" 
-        style="position:absolute; top:15px; left:15px; padding:8px 12px; 
-               background:#222; border:1px solid #444; color:white; z-index:9999;">
+<button onclick="toggleMapTheme()"
+        style="position:absolute; top:15px; left:15px; padding:8px 12px; z-index:99999;">
     Cambiar Mapa
 </button>
 
@@ -33,19 +32,13 @@
     </div>
 
     <div id="map"></div>
-
 </div>
 
-<!-- LEAFLET -->
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js
 
-<!-- SUPABASE -->
-../scripts/supabaseClient.js</script>
-
-<!-- AUTH -->
-../scripts/auth.js</script>
-
-<!-- VEHICLES (inicializa mapa y capas) -->
+<!-- scripts aquí abajo -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../scripts/supabaseClient.js"></script>
+<script src="../scripts/auth.js"></script>
 <script src="../scripts/vehicles.js"></script>
 
 <script>
