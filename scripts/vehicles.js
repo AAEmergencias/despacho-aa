@@ -1,24 +1,21 @@
-// Vehicles logic placeholder// ===============================
-// vehicles.js - FASE 4 (Bloque 1)
-// Sistema CAD estilo CBS
+// ===============================
+// Mapa claro OpenStreetMap
 // ===============================
 
-// Objeto global donde guardaremos marcadores en el mapa
 let vehicleMarkers = {};
 
-// Inicializar mapa Leaflet (oscuro estilo CBS)
 function initVehicleMap() {
     const map = L.map("map", {
         zoomControl: true,
-        preferCanvas: true,
+        preferCanvas: true
     }).setView([-33.45, -70.66], 12);
 
-    // Capa Carto Dark Matter
+    // Capa clara estilo estándar (OSM)
     L.tileLayer(
-        https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png,
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
             maxZoom: 19,
-            attribution: "&copy; CARTO",
+            attribution: "&copy; OpenStreetMap contributors"
         }
     ).addTo(map);
 
@@ -26,7 +23,6 @@ function initVehicleMap() {
 }
 
 let vehicleMap = initVehicleMap();
-
 // ===============================
 // BLOQUE 2 — Alternador de modo de mapa (oscuro / claro)
 // ===============================
