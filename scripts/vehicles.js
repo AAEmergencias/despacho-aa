@@ -60,3 +60,25 @@ function toggleMapTheme() {
         currentTheme = "dark";
     }
 }
+// ======================================
+// BLOQUE 4 — Cargar vehículos desde Supabase
+// ======================================
+
+// Lista global de vehículos
+let vehicles = [];
+
+// Función que obtiene vehículos desde Supabase
+async function loadVehicles() {
+    const { data, error } = await supabaseClient
+        .from("vehicles")
+        .select("*");
+
+    if (error) {
+        console.error("Error cargando vehículos:", error);
+        return;
+    }
+
+    vehicles = data;
+    renderVehiclesOnMap();
+    renderVehicleList();
+}
