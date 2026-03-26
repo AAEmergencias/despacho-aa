@@ -1,22 +1,57 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<link rel='stylesheet' href='../css/cad_dark.css'>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <meta charset="UTF-8">
+    <title>CAD Operador</title>
+
+    <style>
+        body { margin:0; background:#111; color:white; font-family:Arial; }
+        #layout { display:flex; height:100vh; }
+        #sidebar { width:300px; background:#1f1f1f; padding:15px; overflow-y:auto; }
+        #map { flex:1; }
+        button { margin:3px; padding:8px; }
+    </style>
+
+    <link rel="stylesheet" 
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
+
 <body>
-<div id='layout'>
-  <div id='sidebar'>CAD Operador</div>
-  <div id='map'></div>
+
+<button onclick="toggleMapTheme()" 
+        style="position:absolute; top:15px; left:15px; z-index:9999;">
+    Cambiar Mapa
+</button>
+
+<div id="layout">
+    <div id="sidebar">
+        <h2>CAD Operador</h2>
+
+        <h3>Vehículos</h3>
+        <div id="vehicleList"></div>
+
+        <h3>Estados</h3>
+        <button onclick="setVehicleState('6-3')">6-3 En el lugar</button>
+        <button onclick="setVehicleState('6-8')">6-8 Disponible</button>
+        <button onclick="setVehicleState('6-9')">6-9 Se retira</button>
+        <button onclick="setVehicleState('6-10')">6-10 En base</button>
+
+        <h3>Sesion</h3>
+        <button onclick="logout()">Cerrar sesión</button>
+    </div>
+
+    <div id="map"></div>
 </div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+../scripts/supabaseClient.js</script>
+../scripts/auth.js</script>
+../scripts/vehicles.js</script>
+
 <script>
-var map = L.map('map').setView([-33.45, -70.66], 12);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    maxZoom: 19,
-    attribution: '&copy; CARTO'
-}).addTo(map);
+    protectRoute(["operador","supervisor","admin"]);
 </script>
+
 </body>
 </html>
