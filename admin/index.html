@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Panel Admin</title>
+    <title>Panel Administrador</title>
 
     <style>
         body { margin:0; background:#111; color:white; font-family:Arial; }
         #layout { display:flex; height:100vh; }
         #sidebar { width:300px; background:#1f1f1f; padding:15px; }
         #map { flex:1; }
+        button { padding:8px 12px; cursor:pointer; }
     </style>
 
     https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
@@ -17,27 +18,34 @@
 
 <body>
 
+<!-- 🔵 BOTÓN DE CAMBIO DE MAPA -->
 <button onclick="toggleMapTheme()"
-        style="position:absolute; top:15px; left:15px; 
-               padding:8px 15px; z-index:999999;
-               background:#333; color:white; border:1px solid #666; cursor:pointer;">
+        style="position:absolute; top:15px; left:15px; z-index:9999; padding:8px 12px;">
     Cambiar Mapa
 </button>
-    
+
 <div id="layout">
+
     <div id="sidebar">
         <h2>Panel Administrador</h2>
         <p>Aquí podrás gestionar usuarios y claves radiales.</p>
-
         <button onclick="logout()">Cerrar sesión</button>
     </div>
 
+    <!-- 🔵 MAPA ADMIN (antes no aparecía) -->
     <div id="map"></div>
 </div>
 
+<!-- 🔵 LIBRERÍA LEAFLET -->
 https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- 🔵 SUPABASE -->
 ../scripts/supabaseClient.js"></script>
+
+<!-- 🔵 SISTEMA DE AUTENTICACIÓN -->
 ../scripts/auth.js"></script>
+
+<!-- 🔵 SISTEMA DE VEHÍCULOS (INCLUYE EL MAPA) -->
 ../scripts/vehicles.js"></script>
 
 <script>
