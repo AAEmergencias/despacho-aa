@@ -92,13 +92,19 @@ function redirectByRole(role) {
 // ======================================
 // PROTEGER RUTAS SEGÚN ROL
 // ======================================
-if (!session || !role) {
-    window.location.href = "/despacho-aa/login.html";
-    return;
-}
-if (!allowedRoles.includes(role)) {
-    window.location.href = "/despacho-aa/public/index.html";
-    return;
+function protectRoute(allowedRoles = []) {
+    const session = getSavedSession();
+    const role = getSavedRole();
+
+    if (!session || !role) {
+        window.location.href = "/despacho-aa/login.html";
+        return;
+    }
+
+    if (!allowedRoles.includes(role)) {
+        window.location.href = "/despacho-aa/public/index.html";
+        return;
+    }
 }
 // ======================================
 // LOGOUT
