@@ -66,29 +66,33 @@ async function login() {
     // Guardar sesión
     saveSession(session, role);
 
-    // Redirigir según rol (IMPORTANTE para GitHub Pages)
+    // Redirigir según rol
     redirectByRole(role);
 }
 
 // ======================================
-// REDIRECCIÓN POR ROL (VERSIÓN CORRECTA PARA GITHUB PAGES)
+// REDIRECCIÓN POR ROL
+// (FUNCIONA EN GITHUB PAGES)
 // ======================================
 function redirectByRole(role) {
-
     switch (role) {
         case "admin":
-            window.location.href = "./admin/index.html";
+            window.location.href = "admin/index.html";
             break;
+
         case "supervisor":
-            window.location.href = "./supervisor/index.html";
+            window.location.href = "supervisor/index.html";
             break;
+
         case "operador":
-            window.location.href = "./operator/index.html";
+            window.location.href = "operator/index.html";
             break;
+
         default:
-            window.location.href = "./public/index.html";
+            window.location.href = "public/index.html";
     }
 }
+
 // ======================================
 // PROTEGER RUTAS SEGÚN ROL
 // ======================================
@@ -97,20 +101,21 @@ function protectRoute(allowedRoles = []) {
     const role = getSavedRole();
 
     if (!session || !role) {
-        window.location.href = "/despacho-aa/login.html";
+        window.location.href = "../login.html";
         return;
     }
 
     if (!allowedRoles.includes(role)) {
-        window.location.href = "/despacho-aa/public/index.html";
+        window.location.href = "../public/index.html";
         return;
     }
 }
+
 // ======================================
 // LOGOUT
 // ======================================
 async function logout() {
     await supabaseClient.auth.signOut();
     localStorage.clear();
-    window.location.href = "/despacho-aa/login.html";
+    window.location.href = "../login.html";
 }
