@@ -113,5 +113,5 @@ function protectRoute(allowedRoles = []) {
 async function logout() {
     await supabaseClient.auth.signOut();
     localStorage.clear();
-    window.location.href = "./login.html";
+    window.location.href = "/despacho-aa/login.html"; 
 }
