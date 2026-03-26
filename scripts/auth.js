@@ -1,32 +1,22 @@
-// ======================================
-// AUTH.JS - Sistema de Login + Roles + Rutas para GitHub Pages
-// ======================================
+// ========================
+// AUTH.JS FINAL
+// ========================
 
-// Crear cliente Supabase (V2)
-const supabaseClient = supabase.createClient(
-    window.SUPABASE_URL,
-    window.SUPABASE_ANON_KEY
-);
-
-// Guardar sesión y rol (persistente)
+// Guardar sesión
 function saveSession(session, role) {
     localStorage.setItem("sb_session", JSON.stringify(session));
     localStorage.setItem("sb_role", role);
 }
 
-// Obtener sesión guardada
+// Obtener sesión
 function getSavedSession() {
     return JSON.parse(localStorage.getItem("sb_session"));
 }
-
-// Obtener rol guardado
 function getSavedRole() {
     return localStorage.getItem("sb_role");
 }
 
-// ======================================
-// LOGIN REAL SUPABASE
-// ======================================
+// LOGIN
 async function login() {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -36,7 +26,6 @@ async function login() {
         return;
     }
 
-    // Iniciar sesión en Supabase
     const { data, error } = await supabaseClient.auth.signInWithPassword({
         email,
         password
@@ -49,7 +38,7 @@ async function login() {
 
     const session = data.session;
 
-    // Buscar rol en user_roles
+    // Buscar rol
     const { data: roleData, error: roleError } = await supabaseClient
         .from("user_roles")
         .select("role")
@@ -57,26 +46,18 @@ async function login() {
         .single();
 
     if (roleError || !roleData) {
-        alert("No tiene un rol asignado.");
+        alert("No tiene rol asignado.");
         return;
     }
 
     const role = roleData.role;
-
-    // Guardar sesión
     saveSession(session, role);
-
-    // Redirigir según rol
     redirectByRole(role);
 }
 
-// ======================================
-// REDIRECCIÓN POR ROL
-// SOLO admin / operador / visor
-// ======================================
+// REDIRECT POR ROL
 function redirectByRole(role) {
     switch (role) {
-
         case "admin":
             window.location.href = "admin/index.html";
             break;
@@ -90,13 +71,11 @@ function redirectByRole(role) {
             break;
 
         default:
-            window.location.href = "login.html"; 
+            window.location.href = "login.html";
     }
 }
 
-// ======================================
 // PROTEGER RUTAS SEGÚN ROL
-// ======================================
 function protectRoute(allowedRoles = []) {
     const session = getSavedSession();
     const role = getSavedRole();
@@ -112,9 +91,7 @@ function protectRoute(allowedRoles = []) {
     }
 }
 
-// ======================================
 // LOGOUT
-// ======================================
 async function logout() {
     await supabaseClient.auth.signOut();
     localStorage.clear();
