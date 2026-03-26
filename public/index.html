@@ -17,21 +17,16 @@
 
 <body>
 
-<button onclick="toggleMapTheme()"
-        style="position:absolute; top:15px; left:15px; padding:8px 15px; z-index:999;">
-    Cambiar mapa
-</button>
-
 <div id="layout">
     <div id="sidebar">
         <h3>Vista Pública</h3>
         <div id="vehicleList"></div>
     </div>
+
     <div id="map"></div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
 <script src="../scripts/supabaseClient.js"></script>
 <script src="../scripts/auth.js"></script>
