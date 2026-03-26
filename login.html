@@ -1,32 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Login - CAD</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 25px;
+            background: #111;
+            color: white;
+        }
+
+        input {
+            padding: 10px;
+            width: 260px;
+            margin-bottom: 12px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #333;
+            color: white;
+            border: 1px solid #666;
+        }
+    </style>
 </head>
 
-<body style="font-family: Arial; padding: 25px; background: #111; color: white;">
-    <h2>Login</h2>
+<body>
 
-    <input id="email" type="email" placeholder="Correo" 
-           style="padding:8px; width:250px;"><br><br>
+    <h2>Iniciar Sesión</h2>
 
-    <input id="password" type="password" placeholder="Contraseña" 
-           style="padding:8px; width:250px;"><br><br>
+    <input id="email" type="email" placeholder="Correo"><br>
+    <input id="password" type="password" placeholder="Contraseña"><br>
 
-    <button onclick="login()" 
-            style="padding:10px 20px; cursor:pointer;">
-        Ingresar
-    </button>
+    <button onclick="login()">Ingresar</button>
 
-    <!-- Librería Supabase (CORRECTA) -->
+    <!-- Supabase (CDN oficial) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
 
     <!-- Cliente Supabase -->
     <script src="scripts/supabaseClient.js"></script>
 
-    <!-- Sistema de Autenticación -->
+    <!-- Sistema de Login y Roles -->
     <script src="scripts/auth.js"></script>
 
+    <!-- Si ya tiene sesión iniciada → lo enviamos directo -->
+    <script>
+        const existingSession = localStorage.getItem("sb_session");
+        const role = localStorage.getItem("sb_role");
+
+        if (existingSession && role) {
+            if (role === "admin") window.location.href = "admin/index.html";
+            if (role === "operador") window.location.href = "operator/index.html";
+            if (role === "visor") window.location.href = "public/index.html";
+        }
+    </script>
+
 </body>
+
 </html>
