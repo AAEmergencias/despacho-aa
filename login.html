@@ -1,9 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body style="font-family: Arial; padding: 20px;">
+    <h2>Login</h2>
 
-<!DOCTYPE html><html><body>
-<h2>Login</h2>
-<input id='email' placeholder='email'><br>
-<input id='password' type='password' placeholder='contraseña'><br>
-<button onclick="login()">Ingresar</button>
-<script src="scripts/supabaseClient.js"></script>
-<script src="scripts/auth.js"></script>
-</body></html>
+    <input id="email" type="email" placeholder="Correo"><br><br>
+    <input id="password" type="password" placeholder="Contraseña"><br><br>
+
+    <button onclick="login()">Ingresar</button>
+
+    <!-- 1. LIBRERÍA OFICIAL SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. TU CLIENTE DE SUPABASE (URL + ANON KEY) -->
+    <script src="scripts/supabaseClient.js"></script>
+
+    <!-- 3. SISTEMA DE LOGIN, ROLES Y PROTECCIÓN -->
+    <script src="scripts/auth.js"></script>
+
+</body>
+</html>
