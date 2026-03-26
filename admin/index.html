@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Panel Admin</title>
@@ -11,8 +12,7 @@
         #map { flex:1; }
     </style>
 
-    <link rel="stylesheet" 
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 <div id="layout">
     <div id="sidebar">
         <h2>Panel Administrador</h2>
-        <p>Aquí podrás gestionar usuarios, roles y claves radiales.</p>
+        <p>Aquí podrás gestionar usuarios y claves radiales.</p>
 
         <button onclick="logout()">Cerrar sesión</button>
     </div>
@@ -28,14 +28,13 @@
     <div id="map"></div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-../scripts/supabaseClient.js</script>
-../scripts/auth.js</script>
-../scripts/vehicles.js</script>
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+../scripts/supabaseClient.js"></script>
+../scripts/auth.js"></script>
+../scripts/vehicles.js"></script>
 
 <script>
-    protectRoute(["admin"]);
+protectRoute(["admin"]);
 </script>
 
 </body>
