@@ -13,7 +13,8 @@
         button { padding:8px 12px; cursor:pointer; }
     </style>
 
-    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
+    <!-- ESTA LÍNEA ES UN LINK, NO UN SCRIPT -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -32,17 +33,18 @@
     </div>
 
     <div id="map"></div>
+
 </div>
 
+<!-- AHORA SÍ LOS SCRIPTS SE CARGAN -->
 
-<!-- scripts aquí abajo -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="../scripts/supabaseClient.js"></script>
 <script src="../scripts/auth.js"></script>
 <script src="../scripts/vehicles.js"></script>
 
 <script>
-protectRoute(["admin"]);
+    protectRoute(["admin"]);
 </script>
 
 </body>
