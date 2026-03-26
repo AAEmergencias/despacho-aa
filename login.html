@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
 </head>
-
 <body style="font-family: Arial; padding: 20px;">
-  <h2>Login</h2>
+    <h2>Login</h2>
 
-  <input id="email" type="email" placeholder="Correo"><br><br>
-  <input id="password" type="password" placeholder="Contraseña"><br><br>
+    <input id="email" type="email" placeholder="Correo"><br><br>
+    <input id="password" type="password" placeholder="Contraseña"><br><br>
 
-  <button onclick="login()">Ingresar</button>
+    <button onclick="login()">Ingresar</button>
 
-  <!-- 1. LIBRERÍA SUPABASE -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- 1. LIBRERÍA SUPABASE (CORRECTA) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- 2. CLIENTE SUPABASE -->
-  <script src="scripts/supabaseClient.js"></script>
+    <!-- 2. CLIENTE SUPABASE -->
+    <script src="scripts/supabaseClient.js"></script>
 
-  <!-- 3. SISTEMA DE AUTENTICACIÓN -->
-  <script src="scripts/auth.js"></script>
+    <!-- 3. SISTEMA DE AUTENTICACIÓN -->
+    <script src="scripts/auth.js"></script>
 
 </body>
 </html>
