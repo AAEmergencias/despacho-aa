@@ -75,18 +75,20 @@ async function login() {
 // REDIRECCIÓN
 // ======================================
 function redirectByRole(role) {
+    const base = "/despacho-aa"; // nombre del repositorio en GitHub
+
     switch (role) {
         case "admin":
-            window.location.href = "/admin/index.html";
+            window.location.href = `${base}/admin/index.html`;
             break;
         case "supervisor":
-            window.location.href = "/supervisor/index.html";
+            window.location.href = `${base}/supervisor/index.html`;
             break;
         case "operador":
-            window.location.href = "/operator/index.html";
+            window.location.href = `${base}/operator/index.html`;
             break;
         default:
-            window.location.href = "/public/index.html";
+            window.location.href = `${base}/public/index.html`;
     }
 }
 
