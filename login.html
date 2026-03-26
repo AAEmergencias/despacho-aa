@@ -30,18 +30,8 @@
             border: 1px solid #666;
         }
     </style>
-</head>
 
-<body>
-
-    <h2>Iniciar Sesión</h2>
-
-    <input id="email" type="email" placeholder="Correo"><br>
-    <input id="password" type="password" placeholder="Contraseña"><br>
-
-    <button onclick="login()">Ingresar</button>
-
-    <!-- Supabase (CDN oficial) -->
+    <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
 
     <!-- Cliente Supabase -->
@@ -50,12 +40,23 @@
     <!-- Sistema de Login y Roles -->
     <script src="scripts/auth.js"></script>
 
-    <!-- Si ya tiene sesión iniciada → lo enviamos directo -->
+</head>
+
+<body>
+
+    <h2>Login</h2>
+
+    <input id="email" type="email" placeholder="Correo"><br>
+    <input id="password" type="password" placeholder="Contraseña"><br>
+
+    <button onclick="login()">Ingresar</button>
+
+    <!-- Detectar si ya está conectado -->
     <script>
-        const existingSession = localStorage.getItem("sb_session");
+        const session = localStorage.getItem("sb_session");
         const role = localStorage.getItem("sb_role");
 
-        if (existingSession && role) {
+        if (session && role) {
             if (role === "admin") window.location.href = "admin/index.html";
             if (role === "operador") window.location.href = "operator/index.html";
             if (role === "visor") window.location.href = "public/index.html";
@@ -63,5 +64,5 @@
     </script>
 
 </body>
-
 </html>
+``
