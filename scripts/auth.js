@@ -72,24 +72,25 @@ async function login() {
 
 // ======================================
 // REDIRECCIÓN POR ROL
-// (FUNCIONA EN GITHUB PAGES)
+// SOLO admin / operador / visor
 // ======================================
 function redirectByRole(role) {
     switch (role) {
+
         case "admin":
             window.location.href = "admin/index.html";
-            break;
-
-        case "supervisor":
-            window.location.href = "supervisor/index.html";
             break;
 
         case "operador":
             window.location.href = "operator/index.html";
             break;
 
-        default:
+        case "visor":
             window.location.href = "public/index.html";
+            break;
+
+        default:
+            window.location.href = "login.html"; 
     }
 }
 
