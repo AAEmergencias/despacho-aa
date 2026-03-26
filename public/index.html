@@ -6,41 +6,71 @@
     <title>Vista Pública</title>
 
     <style>
-        body { margin:0; background:#1a1a1a; color:white; font-family:Arial; }
-        #layout { display:flex; height:100vh; }
-        #sidebar { width:300px; background:#222; padding:15px; }
-        #map { flex:1; }
+        body {
+            margin: 0;
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial;
+        }
+
+        #layout {
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 300px;
+            background: #222;
+            padding: 15px;
+        }
+
+        #map {
+            flex: 1;
+        }
     </style>
 
-    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
+    <!-- Leaflet CSS CORRECTO -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
 </head>
 
 <body>
 
-<button onclick="toggleMapTheme()"
+    <button onclick="toggleMapTheme()"
         style="position:absolute; top:15px; left:15px; 
                padding:8px 15px; z-index:999999;
                background:#333; color:white; border:1px solid #666; cursor:pointer;">
-    Cambiar Mapa
-</button>
+        Cambiar Mapa
+    </button>
 
-<div id="layout">
-    <div id="sidebar">
-        <h3>Vista Pública</h3>
-        <div id="vehicleList"></div>
+    <div id="layout">
+        <div id="sidebar">
+            <h3>Vista Pública</h3>
+            <div id="vehicleList"></div>
+        </div>
+
+        <div id="map"></div>
     </div>
 
-    <div id="map"></div>
-</div>
 
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-../scripts/supabaseClient.js"></script>
-../scripts/auth.js"></script>
-../scripts/vehicles.js"></script>
+    <!-- Leaflet JS CORRECTO -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+    <!-- Supabase -->
+    <script src="../scripts/supabaseClient.js"></script>
+
+    <!-- Sistema de rutas y logout -->
+    <script src="../scripts/auth.js"></script>
+
+    <!-- Sistema de vehículos -->
+    <script src="../scripts/vehicles.js"></script>
+
+    <!-- PROTEGER RUTA PARA VISOR -->
     <script>
-    protectRoute(["visor", "admin"]);
-</script>
+        protectRoute(["visor", "admin"]);
+    </script>
 
 </body>
 </html>
