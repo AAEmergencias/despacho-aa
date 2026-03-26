@@ -1,15 +1,14 @@
 // ======================================
-// AUTH.JS - FASE 4 (Módulo 1)
-// Autenticación + Roles + Sesión persistente
+// AUTH.JS - Sistema de Login + Roles + Rutas para GitHub Pages
 // ======================================
 
-// Inicializar cliente Supabase
+// Crear cliente Supabase (V2)
 const supabaseClient = supabase.createClient(
     window.SUPABASE_URL,
     window.SUPABASE_ANON_KEY
 );
 
-// Guardar la sesión y rol en localStorage
+// Guardar sesión y rol (persistente)
 function saveSession(session, role) {
     localStorage.setItem("sb_session", JSON.stringify(session));
     localStorage.setItem("sb_role", role);
@@ -26,69 +25,71 @@ function getSavedRole() {
 }
 
 // ======================================
-// LOGIN REAL
+// LOGIN REAL SUPABASE
 // ======================================
 async function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     if (!email || !password) {
-        alert("Ingrese correo y contraseña");
+        alert("Ingrese correo y contraseña.");
         return;
     }
 
-    // Intentar iniciar sesión
+    // Iniciar sesión en Supabase
     const { data, error } = await supabaseClient.auth.signInWithPassword({
         email,
         password
     });
 
     if (error) {
-        alert("Error de inicio de sesión: " + error.message);
+        alert("Error al iniciar sesión: " + error.message);
         return;
     }
 
     const session = data.session;
 
-    // Buscar el rol en la tabla user_roles
+    // Buscar rol en user_roles
     const { data: roleData, error: roleError } = await supabaseClient
         .from("user_roles")
         .select("role")
         .eq("user_id", session.user.id)
         .single();
 
-    if (roleError) {
+    if (roleError || !roleData) {
         alert("No tiene un rol asignado.");
         return;
     }
 
     const role = roleData.role;
 
-    // Guardar la sesión persistente
+    // Guardar sesión
     saveSession(session, role);
 
-    // Redirigir según rol
+    // Redirigir según rol (IMPORTANTE para GitHub Pages)
     redirectByRole(role);
 }
 
 // ======================================
-// REDIRECCIÓN
+// REDIRECCIÓN POR ROL (VERSIÓN CORRECTA PARA GITHUB PAGES)
 // ======================================
 function redirectByRole(role) {
-    const base = "/despacho-aa"; // nombre del repositorio en GitHub
+
+    // Ruta base del repositorio
+    const base = "./";
 
     switch (role) {
         case "admin":
-            window.location.href = `${base}/admin/index.html`;
+            window.location.href = base + "admin/index.html";
             break;
         case "supervisor":
-            window.location.href = `${base}/supervisor/index.html`;
+            window.location.href = base + "supervisor/index.html";
             break;
         case "operador":
-            window.location.href = `${base}/operator/index.html`;
+            window.location.href = base + "operator/index.html";
             break;
         default:
-            window.location.href = `${base}/public/index.html`;
+            window.location.href = base + "public/index.html";
     }
 }
 
@@ -100,12 +101,12 @@ function protectRoute(allowedRoles = []) {
     const role = getSavedRole();
 
     if (!session || !role) {
-        window.location.href = "/login.html";
+        window.location.href = "./login.html";
         return;
     }
 
     if (!allowedRoles.includes(role)) {
-        window.location.href = "/public/index.html";
+        window.location.href = "./public/index.html";
         return;
     }
 }
@@ -116,5 +117,5 @@ function protectRoute(allowedRoles = []) {
 async function logout() {
     await supabaseClient.auth.signOut();
     localStorage.clear();
-    window.location.href = "/login.html";
+    window.location.href = "./login.html";
 }
