@@ -92,26 +92,19 @@ function redirectByRole(role) {
 // ======================================
 // PROTEGER RUTAS SEGÚN ROL
 // ======================================
-function protectRoute(allowedRoles = []) {
-    const session = getSavedSession();
-    const role = getSavedRole();
-
-    if (!session || !role) {
-        window.location.href = "./login.html";
-        return;
-    }
-
-    if (!allowedRoles.includes(role)) {
-        window.location.href = "./public/index.html";
-        return;
-    }
+if (!session || !role) {
+    window.location.href = "/despacho-aa/login.html";
+    return;
 }
-
+if (!allowedRoles.includes(role)) {
+    window.location.href = "/despacho-aa/public/index.html";
+    return;
+}
 // ======================================
 // LOGOUT
 // ======================================
 async function logout() {
     await supabaseClient.auth.signOut();
     localStorage.clear();
-    window.location.href = "/despacho-aa/login.html"; 
+    window.location.href = "/despacho-aa/login.html";
 }
