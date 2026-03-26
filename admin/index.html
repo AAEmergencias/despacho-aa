@@ -18,9 +18,9 @@
 
 <body>
 
-<!-- 🔵 BOTÓN DE CAMBIO DE MAPA -->
-<button onclick="toggleMapTheme()"
-        style="position:absolute; top:15px; left:15px; z-index:9999; padding:8px 12px;">
+<button onclick="toggleMapTheme()" 
+        style="position:absolute; top:15px; left:15px; padding:8px 12px; 
+               background:#222; border:1px solid #444; color:white; z-index:9999;">
     Cambiar Mapa
 </button>
 
@@ -32,21 +32,21 @@
         <button onclick="logout()">Cerrar sesión</button>
     </div>
 
-    <!-- 🔵 MAPA ADMIN (antes no aparecía) -->
     <div id="map"></div>
+
 </div>
 
-<!-- 🔵 LIBRERÍA LEAFLET -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- LEAFLET -->
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- 🔵 SUPABASE -->
-<script src="../scripts/supabaseClient.js"></script>
+<!-- SUPABASE -->
+../scripts/supabaseClient.js"></script>
 
-<!-- 🔵 SISTEMA DE AUTENTICACIÓN -->
-<script src="../scripts/auth.js"></script>
+<!-- AUTH -->
+../scripts/auth.js"></script>
 
-<!-- 🔵 SISTEMA DE VEHÍCULOS (INCLUYE EL MAPA) -->
-<script src="../scripts/vehicles.js"></script>
+<!-- VEHICLES (inicializa mapa y capas) -->
+../scripts/vehicles.js"></script>
 
 <script>
 protectRoute(["admin"]);
