@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Vista Pública</title>
 
     <style>
-        body { margin: 0; background: #1a1a1a; color:white; font-family: Arial; }
-        #layout { display: flex; height: 100vh; }
-        #sidebar { width: 300px; background:#222; padding:15px; }
-        #map { flex: 1; }
+        body { margin:0; background:#1a1a1a; color:white; font-family:Arial; }
+        #layout { display:flex; height:100vh; }
+        #sidebar { width:300px; background:#222; padding:15px; }
+        #map { flex:1; }
     </style>
 
-    <link rel="stylesheet" 
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
 </head>
 
 <body>
 
-<button onclick="toggleMapTheme()" 
-        style="position:absolute; top:15px; left:20px; z-index:9999;">
+<button onclick="toggleMapTheme()"
+        style="position:absolute; top:15px; left:20px; z-index:9999; padding:8px 12px;">
     Cambiar Mapa
 </button>
 
@@ -31,16 +31,10 @@
     <div id="map"></div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<!-- Cliente Supabase -->
-../scripts/supabaseClient.js</script>
-
-<!-- Sistema de autenticación (para protectRoute si lo agregas luego) -->
-../scripts/auth.js</script>
-
-<!-- Vehicles -->
-../scripts/vehicles.js</script>
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+../scripts/supabaseClient.js"></script>
+../scripts/auth.js"></script>
+../scripts/vehicles.js"></script>
 
 </body>
 </html>
