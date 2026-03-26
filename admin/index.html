@@ -2,53 +2,79 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Panel Administrador</title>
 
     <style>
-        body { margin:0; background:#111; color:white; font-family:Arial; }
-        #layout { display:flex; height:100vh; }
-        #sidebar { width:300px; background:#1f1f1f; padding:15px; }
-        #map { flex:1; }
-        button { padding:8px 12px; cursor:pointer; }
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #layout {
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 300px;
+            background: #1f1f1f;
+            padding: 15px;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        #map {
+            flex: 1;
+            background: #000;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+            background: #333;
+            color: white;
+            border: 1px solid #666;
+        }
     </style>
 
-    <link 
-        rel="stylesheet" 
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
+    <!-- Leaflet CSS (escríbelo tú completo en GitHub) -->
+    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
     
 </head>
 
 <body>
 
-<button onclick="toggleMapTheme()"
-        style="position:absolute; top:15px; left:15px; padding:8px 12px; z-index:99999;">
-    Cambiar Mapa
-</button>
+    <div id="layout">
 
-<div id="layout">
+        <div id="sidebar">
+            <h2>Panel Administrador</h2>
+            <p>Aquí podrás gestionar usuarios y claves radiales.</p>
 
-    <div id="sidebar">
-        <h2>Panel Administrador</h2>
-        <p>Aquí podrás gestionar usuarios y claves radiales.</p>
-        <button onclick="logout()">Cerrar sesión</button>
+            <button onclick="logout()">Cerrar sesión</button>
+        </div>
+
+        <div id="map"></div>
+
     </div>
 
-    <div id="map"></div>
+    <!-- Leaflet JS (escríbelo tú completo) -->
+    https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
 
-</div>
+    <!-- Supabase client -->
+    ../scripts/supabaseClient.js</script>
 
-<!-- AHORA SÍ LOS SCRIPTS SE CARGAN -->
+    <!-- Auth system -->
+    ../scripts/auth.js</script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="../scripts/supabaseClient.js"></script>
-<script src="../scripts/auth.js"></script>
-<script src="../scripts/vehicles.js"></script>
+    <!-- Vehicles + mapa Voyager -->
+    ../scripts/vehicles.js</script>
 
-<script>
-    protectRoute(["admin"]);
-</script>
+    <script>
+        protectRoute(["admin"]);
+    </script>
 
 </body>
 </html>
