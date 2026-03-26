@@ -6,38 +6,10 @@
     <title>Panel Administrador</title>
 
     <style>
-        body {
-            margin: 0;
-            background: #111;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        #layout {
-            display: flex;
-            height: 100vh;
-        }
-
-        #sidebar {
-            width: 300px;
-            background: #1f1f1f;
-            padding: 15px;
-            overflow-y: auto;
-            box-sizing: border-box;
-        }
-
-        #map {
-            flex: 1;
-            background: #000;
-        }
-
-        button {
-            padding: 8px 12px;
-            cursor: pointer;
-            background: #333;
-            color: white;
-            border: 1px solid #666;
-        }
+        body { margin: 0; background: #111; color: white; font-family: Arial; }
+        #layout { display: flex; height: 100vh; }
+        #sidebar { width: 300px; background: #1f1f1f; padding: 15px; }
+        #map { flex: 1; background: #000; }
     </style>
 
     <!-- Leaflet CSS -->
@@ -46,38 +18,35 @@
 
 <body>
 
-    <div id="layout">
-
-        <div id="sidebar">
-            <h2>Panel Administrador</h2>
-            <p>Aquí podrás gestionar usuarios y claves radiales.</p>
-
-            <button onclick="logout()">Cerrar sesión</button>
-        </div>
-
-        <div id="map"></div>
-
+<div id="layout">
+    <div id="sidebar">
+        <h2>Panel Administrador</h2>
+        <p>Aquí podrás gestionar usuarios y claves radiales.</p>
+        <button onclick="logout()">Cerrar sesión</button>
     </div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <div id="map"></div>
+</div>
 
-    <!-- ⚠ SUPABASE LIBRARY (CRÍTICO) -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- Supabase Client -->
-    <script src="../scripts/supabaseClient.js"></script>
+<!-- SUPABASE LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
 
-    <!-- Sistema de autenticación -->
-    <script src="../scripts/auth.js"></script>
+<!-- Supabase Client -->
+<script src="../scripts/supabaseClient.js"></script>
 
-    <!-- Vehicles + Mapa -->
-    <script src="../scripts/vehicles.js"></script>
+<!-- Sistema de autenticación -->
+<script src="../scripts/auth.js"></script>
 
-    <!-- Proteger ruta ADMIN -->
-    <script>
-        protectRoute(["admin"]);
-    </script>
+<!-- Vehicles + Mapa -->
+<script src="../scripts/vehicles.js"></script>
+
+<!-- Proteger ruta ADMIN -->
+<script>
+    protectRoute(["admin"]);
+</script>
 
 </body>
 </html>
