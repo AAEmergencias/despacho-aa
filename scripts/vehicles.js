@@ -10,7 +10,7 @@ function initVehicleMap() {
         preferCanvas: true
     }).setView([-33.45, -70.66], 12);
 
-    // Mapa estilo Voyager (como tu imagen)
+    // Mapa estilo Voyager (como la imagen que enviaste)
     L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
         {
@@ -26,7 +26,7 @@ let vehicleMap = initVehicleMap();
 
 
 // ===============================
-// CARGAR VEHICULOS DESDE SUPABASE
+// BLOQUE 4 — Cargar vehículos desde Supabase
 // ===============================
 
 let vehicles = [];
@@ -48,7 +48,7 @@ async function loadVehicles() {
 
 
 // ===============================
-// DIBUJAR ICONOS EN EL MAPA
+// BLOQUE 5 — Mostrar vehículos en el mapa
 // ===============================
 
 function getVehicleIcon(state) {
@@ -64,22 +64,26 @@ function getVehicleIcon(state) {
 
     return L.divIcon({
         className: "vehicle-icon",
-        html: `<div style="
-            width:20px;
-            height:20px;
-            border-radius:50%;
-            background:${color};
-            border:2px solid white;">
-        </div>`
+        html: `
+            <div style="
+                width:20px;
+                height:20px;
+                border-radius:50%;
+                background:${color};
+                border:2px solid white;
+            "></div>
+        `
     });
 }
 
 function renderVehiclesOnMap() {
+    // eliminar marcadores anteriores
     for (const id in vehicleMarkers)
         vehicleMap.removeLayer(vehicleMarkers[id]);
 
     vehicleMarkers = {};
 
+    // agregar nuevos
     for (const v of vehicles) {
         if (!v.lat || !v.lng) continue;
 
@@ -100,7 +104,7 @@ function renderVehiclesOnMap() {
 
 
 // ===============================
-// LISTA LATERAL
+// BLOQUE 6 — Lista lateral
 // ===============================
 
 function renderVehicleList() {
