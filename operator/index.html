@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>CAD Operador</title>
@@ -12,18 +13,18 @@
         button { margin:3px; padding:8px; }
     </style>
 
-    <link rel="stylesheet" 
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
 </head>
 
 <body>
 
-<button onclick="toggleMapTheme()" 
-        style="position:absolute; top:15px; left:15px; z-index:9999;">
+<button onclick="toggleMapTheme()"
+        style="position:absolute; top:15px; left:15px; padding:8px 12px; z-index:99999;">
     Cambiar Mapa
 </button>
 
 <div id="layout">
+
     <div id="sidebar">
         <h2>CAD Operador</h2>
 
@@ -36,18 +37,18 @@
         <button onclick="setVehicleState('6-9')">6-9 Se retira</button>
         <button onclick="setVehicleState('6-10')">6-10 En base</button>
 
-        <h3>Sesion</h3>
+        <hr>
         <button onclick="logout()">Cerrar sesión</button>
     </div>
 
     <div id="map"></div>
+
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-../scripts/supabaseClient.js</script>
-../scripts/auth.js</script>
-../scripts/vehicles.js</script>
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+../scripts/supabaseClient.js"></script>
+../scripts/auth.js"></script>
+../scripts/vehicles.js"></script>
 
 <script>
     protectRoute(["operador","supervisor","admin"]);
