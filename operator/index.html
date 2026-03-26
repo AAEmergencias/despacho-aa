@@ -6,14 +6,37 @@
     <title>CAD Operador</title>
 
     <style>
-        body { margin:0; background:#111; color:white; font-family:Arial; }
-        #layout { display:flex; height:100vh; }
-        #sidebar { width:300px; background:#1f1f1f; padding:15px; overflow-y:auto; }
-        #map { flex:1; }
-        button { margin:3px; padding:8px; }
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: Arial;
+        }
+
+        #layout {
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 300px;
+            background: #1f1f1f;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        #map {
+            flex: 1;
+        }
+
+        button {
+            margin: 3px;
+            padding: 8px;
+        }
     </style>
 
-    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
+    <!-- Leaflet CSS CORRECTO -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 
 <body>
@@ -22,39 +45,47 @@
         style="position:absolute; top:15px; left:15px; 
                padding:8px 15px; z-index:999999;
                background:#333; color:white; border:1px solid #666; cursor:pointer;">
-    Cambiar Mapa
-</button>
+        Cambiar Mapa
+    </button>
 
-<div id="layout">
+    <div id="layout">
 
-    <div id="sidebar">
-        <h2>CAD Operador</h2>
+        <div id="sidebar">
+            <h2>CAD Operador</h2>
 
-        <h3>Vehículos</h3>
-        <div id="vehicleList"></div>
+            <h3>Vehículos</h3>
+            <div id="vehicleList"></div>
 
-        <h3>Estados</h3>
-        <button onclick="setVehicleState('6-3')">6-3 En el lugar</button>
-        <button onclick="setVehicleState('6-8')">6-8 Disponible</button>
-        <button onclick="setVehicleState('6-9')">6-9 Se retira</button>
-        <button onclick="setVehicleState('6-10')">6-10 En base</button>
+            <h3>Estados</h3>
+            <button onclick="setVehicleState('6-3')">6-3 En el lugar</button>
+            <button onclick="setVehicleState('6-8')">6-8 Disponible</button>
+            <button onclick="setVehicleState('6-9')">6-9 Se retira</button>
+            <button onclick="setVehicleState('6-10')">6-10 En base</button>
 
-        <hr>
-        <button onclick="logout()">Cerrar sesión</button>
+            <hr>
+            <button onclick="logout()">Cerrar sesión</button>
+        </div>
+
+        <div id="map"></div>
+
     </div>
 
-    <div id="map"></div>
+    <!-- Leaflet JS CORRECTO -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-</div>
+    <!-- Supabase -->
+    <script src="../scripts/supabaseClient.js"></script>
 
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-../scripts/supabaseClient.js"></script>
-../scripts/auth.js"></script>
-../scripts/vehicles.js"></script>
+    <!-- Sistema de rutas y login -->
+    <script src="../scripts/auth.js"></script>
 
-<script>
-    protectRoute(["operador", "admin"]);
-</script>
-    
+    <!-- Vehículos, estados, mapa -->
+    <script src="../scripts/vehicles.js"></script>
+
+    <!-- Proteger ruta del operador -->
+    <script>
+        protectRoute(["operador", "admin"]);
+    </script>
+
 </body>
 </html>
