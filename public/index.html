@@ -30,19 +30,18 @@
         .vehicle-label-gray { background:#6c757d; }
     </style>
 
-    <link rel="kg.com/leaflet@1.9.4/dist/leaflet.css
-</head>
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.
 <body>
 
 <div id="layout">
+
     <div id="sidebar">
 
         <h2>Vista Pública</h2>
 
         <button onclick="window.location.href='../login.html'"
                 id="btnLogin"
-                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;margin-top:r:white;border:1px solid #666;margin-top:5px;width:100%;display:none;">
+                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;width:100%;margin-toprder:1px solid #666;width:100%;margin-top:5px;display:none;">
             Cerrar sesión
         </button>
 
@@ -51,15 +50,16 @@
     </div>
 
     <div id="map"></div>
+
 </div>
 
 <!-- Leaflet -->
-<script src="https://unpkg.com/leaflet@1.9et.js</script>
+<script src="https://unpkg.com/leaflet@1flet.js</script>
 
-<!-- Supabase (CORRECTO y FUNCIONAL) -->
+<!-- Supabase UMD -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js"></script>
 
-<!-- Scripts de tu sistema -->
+<!-- Scripts del sistema -->
 <script src="../scripts/supabaseClient.js"></script>
 <script src="../scripts/auth.js"></script>
 <script src="../scripts/vehicles.js"></script>
@@ -71,4 +71,3 @@
 
 </body>
 </html>
-``
