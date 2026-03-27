@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>CAD Operador</title>
 
-    <!-- ESTILOS CHIP + PANEL -->
     <style>
         body { margin:0; background:#111; color:white; font-family:Arial; }
         #layout { display:flex; height:100vh; }
@@ -31,7 +30,7 @@
         .vehicle-label-gray { background:#6c757d; }
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -39,18 +38,20 @@
 <div id="layout">
 
     <div id="sidebar">
+
         <h2>CAD Operador</h2>
 
-        <div id="vehicleList"></div>
-
-        <!-- PANEL PARA CAMBIAR CUARTEL -->
-        <div id="stationChangePanel" style="margin-top:20px;"></div>
-
-        <!-- BOTÓN CERRAR SESIÓN -->
-        <button onclick="logout()" 
-                style="padding:8px 12px;background:#333;color:white;border:1px solid #666;margin-top:20px;">
+        <!-- Botón Iniciar sesión -->
+        <button onclick="window.location.href='../login.html'"
+                id="btnLogin"
+                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;width:1003;color:white;border:1px solid #666;width:100%;display:none;margin-top:5px;">
             Cerrar sesión
         </button>
+
+        <h3 style="margin-top:20px;">Vehículos</h3>
+        <div id="vehicleList"></div>
+
+        <div id="stationChangePanel" style="margin-top:20px;"></div>
 
     </div>
 
@@ -58,7 +59,7 @@
 
 </div>
 
-<!-- Leaflet JS -->
+<!-- LEAFLET -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- Supabase -->
@@ -71,9 +72,9 @@
 <!-- Vehicles -->
 <script src="../scripts/vehicles.js"></script>
 
-<!-- Proteger acceso -->
 <script>
     protectRoute(["operador","admin"]);
+    renderSessionButtons();
 </script>
 
 </body>
