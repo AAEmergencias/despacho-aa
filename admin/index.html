@@ -30,7 +30,7 @@
         .vehicle-label-gray { background:#6c757d; }
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -40,15 +40,19 @@
     <div id="sidebar">
 
         <h2>Panel Administrador</h2>
-        <p>Gestión de flota y cuarteles.</p>
 
-        <div id="vehicleList"></div>
-        <div id="stationChangePanel" style="margin-top:20px;"></div>
-
-        <button onclick="logout()"
-                style="padding:8px 12px;background:#333;color:white;border:1px solid #666;margin-top:20px;">
+        <!-- Login -->
+        <button onclick="window.location.href='../login.html'"
+                id="btnLogin"
+                style="padding:
+                style="padding:8px 12px;background:#333;color:white;border:1px solid #666;width:100%;display:none;margin-top:5px;">
             Cerrar sesión
         </button>
+
+        <h3 style="margin-top:20px;">Vehículos</h3>
+        <div id="vehicleList"></div>
+
+        <div id="stationChangePanel" style="margin-top:20px;"></div>
 
     </div>
 
@@ -56,7 +60,7 @@
 
 </div>
 
-<!-- Leaflet -->
+<!-- LEAFLET -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- Supabase -->
@@ -71,6 +75,7 @@
 
 <script>
     protectRoute(["admin"]);
+    renderSessionButtons();
 </script>
 
 </body>
