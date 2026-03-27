@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang=
+
 <head>
     <meta charset="UTF-8" />
     <title>Vista Pública</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.cssmargin:0; background:#111; color:white; font-family:Arial; }
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.cssound:#111; color:white; font-family:Arial; }
         #layout { display:flex; height:100vh; }
         #sidebar { width:300px; background:#1f1f1f; padding:15px; overflow-y:auto; }
         #map { flex:1; }
@@ -20,7 +24,6 @@
             white-space:nowrap;
             font-size:13px;
         }
-
         .vehicle-label-red { background:#dc3545; }
         .vehicle-label-yellow { background:#ffc107; color:black; }
         .vehicle-label-green { background:#28a745; }
@@ -42,13 +45,13 @@
         <div id="map"></div>
     </div>
 
-    <!-- Leaflet -->
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- Supabase (UMD) -->
+    <!-- Supabase UMD -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js"></script>
 
-    <!-- Scripts -->
+    <!-- Scripts del sistema -->
     <script src="../scripts/supabaseClient.js"></script>
     <script src="../scripts/vehicles.js"></script>
 
