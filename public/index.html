@@ -30,7 +30,7 @@
         .vehicle-label-gray { background:#6c757d; }
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -38,14 +38,17 @@
 <div id="layout">
 
     <div id="sidebar">
+
         <h2>Vista Pública</h2>
 
-        <div id="vehicleList"></div>
-
+        <!-- BOTÓN INICIAR SESIÓN -->
         <button onclick="window.location.href='../login.html'"
-                style="padding:8px 12px;background:#444;color:white;border:1px solid #666te;border:1px solid #666; margin-top:5px;display:none;">
+                id="btnLogin"
+                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;margin-top:10px;width:100rder:1px solid #666;margin-top:5px;width:100%;display:none;">
             Cerrar sesión
         </button>
+
+        <div id="vehicleList" style="margin-top:15px;"></div>
 
     </div>
 
@@ -53,18 +56,21 @@
 
 </div>
 
-<!-- Leaflet -->
+<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
 <script src="../scripts/supabaseClient.js"></script>
 
+<!-- Auth -->
 <script src="../scripts/auth.js"></script>
+
+<!-- Vehicles -->
 <script src="../scripts/vehicles.js"></script>
 
 <script>
-    protectRoute(["visor","admin"]);
+    protectRoute(["visor", "admin"]);
     renderSessionButtons();
 </script>
 
