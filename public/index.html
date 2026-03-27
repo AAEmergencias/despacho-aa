@@ -30,34 +30,45 @@
         .vehicle-label-gray { background:#6c757d; }
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet="layout">
+    <link rel="kg.com/leaflet@1.9.4/dist/leaflet.css
+</head>
+
+<body>
+
+<div id="layout">
     <div id="sidebar">
 
         <h2>Vista Pública</h2>
 
         <button onclick="window.location.href='../login.html'"
                 id="btnLogin"
-                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;margin-top:10px;width:der:1px solid #666;margin-top:5px;width:100%;display:none;">
+                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;margin-top:r:white;border:1px solid #666;margin-top:5px;width:100%;display:none;">
             Cerrar sesión
         </button>
 
         <div id="vehicleList" style="margin-top:20px;"></div>
 
     </div>
+
     <div id="map"></div>
 </div>
 
-<script src="https://unpkg.com/leaft/leaflet.js
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9et.js</script>
 
-<script src.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js</script>
+<!-- Supabase (CORRECTO y FUNCIONAL) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js"></script>
+
+<!-- Scripts de tu sistema -->
 <script src="../scripts/supabaseClient.js"></script>
 <script src="../scripts/auth.js"></script>
 <script src="../scripts/vehicles.js"></script>
 
 <script>
-    protectRoute(["visor", "admin"]);
+    protectRoute(["visor","admin"]);
     renderSessionButtons();
 </script>
 
 </body>
 </html>
+``
