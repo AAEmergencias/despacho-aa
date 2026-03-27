@@ -1,6 +1,6 @@
-// ========================
-// AUTH.JS FINAL
-// ========================
+// ======================================
+// AUTH.JS - Sistema de Login + Roles
+// ======================================
 
 // Guardar sesión
 function saveSession(session, role) {
@@ -12,6 +12,7 @@ function saveSession(session, role) {
 function getSavedSession() {
     return JSON.parse(localStorage.getItem("sb_session"));
 }
+
 function getSavedRole() {
     return localStorage.getItem("sb_role");
 }
@@ -51,31 +52,19 @@ async function login() {
     }
 
     const role = roleData.role;
+
     saveSession(session, role);
     redirectByRole(role);
 }
 
-// REDIRECT POR ROL
+// REDIRECCIONAR POR ROL
 function redirectByRole(role) {
-    switch (role) {
-        case "admin":
-            window.location.href = "admin/index.html";
-            break;
-
-        case "operador":
-            window.location.href = "operator/index.html";
-            break;
-
-        case "visor":
-            window.location.href = "public/index.html";
-            break;
-
-        default:
-            window.location.href = "login.html";
-    }
+    if (role === "admin") window.location.href = "admin/index.html";
+    if (role === "operador") window.location.href = "operator/index.html";
+    if (role === "visor") window.location.href = "public/index.html";
 }
 
-// PROTEGER RUTAS SEGÚN ROL
+// PROTEGER RUTA
 function protectRoute(allowedRoles = []) {
     const session = getSavedSession();
     const role = getSavedRole();
