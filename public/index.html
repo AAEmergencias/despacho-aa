@@ -1,71 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Vista Pública</title>
+    <title>CAD Operador</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
 
-    <style>
-        body { margin:0; background:#111; color:white; font-family:Arial; }
-        #layout { display:flex; height:100vh; }
-        #sidebar { width:300px; background:#1f1f1f; padding:15px; overflow-y:auto; }
-        #map { flex:1; }
-
-        .vehicle-label {
-            display:inline-block;
-            padding:4px 10px;
-            color:white;
-            font-weight:bold;
-            border-radius:12px;
-            border:1px solid rgba(0,0,0,0.35);
-            box-shadow:0 1px 4px rgba(0,0,0,0.45);
-            white-space:nowrap;
-            font-size:13px;
-        }
-
-        .vehicle-label-red { background:#dc3545; }
-        .vehicle-label-yellow { background:#ffc107; color:black; }
-        .vehicle-label-green { background:#28a745; }
-        .vehicle-label-blue { background:#007bff; }
-        .vehicle-label-gray { background:#6c757d; }
-    </style>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.
 <body>
 
 <div id="layout">
 
     <div id="sidebar">
+        <h2>CAD Operador</h2>
 
-        <h2>Vista Pública</h2>
-
-        <button onclick="window.location.href='../login.html'"
-                id="btnLogin"
-                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;width:100%;margin-toprder:1px solid #666;width:100%;margin-top:5px;display:none;">
+        <button id="btnLogin"
+                onclick="window.location.href='../login.html'"
+                style="padding:8px 12px;background:#444;color:white;border:1px solid # solid #666;width:100%;margin-top:5px;display:none;">
             Cerrar sesión
         </button>
 
-        <div id="vehicleList" style="margin-top:20px;"></div>
+        <h3 style="margin-top:20px;">Vehículos</h3>
+        <div id="vehicleList"></div>
 
+        <div id="stationChangePanel" style="margin-top:20px;"></div>
     </div>
 
     <div id="map"></div>
 
 </div>
 
-<!-- Leaflet -->
-<script src="https://unpkg.com/leaflet@1flet.js</script>
-
-<!-- Supabase UMD -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js"></script>
-
-<!-- Scripts del sistema -->
-<script src="../scripts/supabaseClient.js"></script>
-<script src="../scripts/auth.js"></script>
-<script src="../scripts/vehicles.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js
+../scripts/supabaseClient.jsscript>
+../scripts/auth.js>
+../scripts/vehicles.js>
 
 <script>
-    protectRoute(["visor","admin"]);
+    protectRoute(["operador","admin"]);
     renderSessionButtons();
 </script>
 
