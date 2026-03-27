@@ -36,15 +36,13 @@
 <body>
 
 <div id="layout">
-
     <div id="sidebar">
 
         <h2>CAD Operador</h2>
 
-        <!-- BOTÓN INICIAR SESIÓN -->
         <button onclick="window.location.href='../login.html'"
                 id="btnLogin"
-                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;margin-top:10px;width:;border:1px solid #666;margin-top:5px;width:100%;display:none;">
+                style="padding:8px 12px;background:#444;color:white;border:1px solid #666;margin-top:10px;width:;width:100%;display:none;">
             Cerrar sesión
         </button>
 
@@ -56,20 +54,13 @@
     </div>
 
     <div id="map"></div>
-
 </div>
 
-<!-- LEAFLET -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- SUPABASE -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js"></script>
 <script src="../scripts/supabaseClient.js"></script>
-
-<!-- AUTH -->
 <script src="../scripts/auth.js"></script>
-
-<!-- VEHICLES -->
 <script src="../scripts/vehicles.js"></script>
 
 <script>
@@ -79,3 +70,4 @@
 
 </body>
 </html>
+``
