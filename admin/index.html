@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <title>Panel Administrador</title>
@@ -16,44 +17,53 @@
 
 <body>
 
-    <button id="btnLogin" onclick="window.location.href='../login.html'"
-        style="padding:8px 12px; background:#444; color:white;333; color:white; border:1px solid #666; display:none;">
-    Cerrar sesión
-</button>
-
-<button onclick="window.location.href='../public/index.html'"
-        style="padding:8px 12px; background:#222; color:white; border:1px solid #666
-            
 <div id="layout">
+
     <div id="sidebar">
         <h2>Panel Administrador</h2>
-        <p>Aquí podrás gestionar usuarios y claves radiales.</p>
-        <button onclick="logout()">Cerrar sesión</button>
+
+        <!-- BOTONES -->
+        <button id="btnLogin" onclick="window.location.href='../login.html'"
+            style="padding:8px 12px; background:#444; color:white; border:1px solid #666;">
+            Iniciar sesión
+        </button>
+
+        <button id="btnLogout" onclick="logout()"
+            style="padding:8px 12px; background:#333; color:white; border:1px solid #666; display:none;">
+            Cerrar sesión
+        </button>
+
+        <button onclick="window.location.href='../public/index.html'"
+            style="padding:8px 12px; background:#222; color:white; border:1px solid #666; margin-top:10px;">
+            Ir al inicio
+        </button>
+
+        <p>Gestión de usuarios, claves radiales y configuraciones.</p>
     </div>
 
     <div id="map"></div>
+
 </div>
 
-<!-- Leaflet JS -->
+<!-- Leaflet -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- SUPABASE LIBRARY -->
+<!-- Supabase Library -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
 
 <!-- Supabase Client -->
 <script src="../scripts/supabaseClient.js"></script>
 
-<!-- Sistema de autenticación -->
+<!-- Auth -->
 <script src="../scripts/auth.js"></script>
 
-<!-- Vehicles -->
+<!-- Vehicles / Mapa -->
 <script src="../scripts/vehicles.js"></script>
 
 <script>
     protectRoute(["admin"]);
+    renderSessionButtons();
 </script>
-
-<script>renderSessionButtons();</script>
 
 </body>
 </html>
