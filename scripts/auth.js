@@ -86,3 +86,17 @@ async function logout() {
     localStorage.clear();
     window.location.href = "../login.html";
 }
+
+function renderSessionButtons() {
+    const session = getSavedSession();
+    const loginBtn = document.getElementById("btnLogin");
+    const logoutBtn = document.getElementById("btnLogout");
+
+    if (session) {
+        if (loginBtn) loginBtn.style.display = "none";
+        if (logoutBtn) logoutBtn.style.display = "block";
+    } else {
+        if (loginBtn) loginBtn.style.display = "block";
+        if (logoutBtn) logoutBtn.style.display = "none";
+    }
+}
