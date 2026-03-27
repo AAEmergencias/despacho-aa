@@ -12,21 +12,31 @@
         #map { flex:1; }
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
-    
-<button id="btnLogin" onclick="window.location.href='../login.html'"
-        style="padding:8px 12px; background:#444; color:white; border:1px solid #666er:1px solid #666; display:none;">
-    Cerrar sesión
-</button>
 
-<button onclick="window.location.href='../public/index.html'"
-        style="padding:8px 12px; background:#222; color:white; border:1px
 <div id="layout">
     <div id="sidebar">
+
         <h2>CAD Operador</h2>
+
+        <!-- BOTONES -->
+        <button id="btnLogin" onclick="window.location.href='../login.html'"
+            style="padding:8px 12px; background:#444; color:white; border:1px solid #666;">
+            Iniciar sesión
+        </button>
+
+        <button id="btnLogout" onclick="logout()"
+            style="padding:8px 12px; background:#333; color:white; border:1px solid #666; display:none;">
+            Cerrar sesión
+        </button>
+
+        <button onclick="window.location.href='../public/index.html'"
+            style="padding:8px 12px; background:#222; color:white; border:1px solid #666; margin-top:10px;">
+            Ir al inicio
+        </button>
 
         <h3>Vehículos</h3>
         <div id="vehicleList"></div>
@@ -37,20 +47,24 @@
         <button onclick="setVehicleState('6-9')">6-9 Se retira</button>
         <button onclick="setVehicleState('6-10')">6-10 En base</button>
 
-        <hr>
-        <button onclick="logout()">Cerrar sesión</button>
     </div>
 
     <div id="map"></div>
 </div>
 
+<!-- Leaflet -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
 <script src="../scripts/supabaseClient.js"></script>
-<scriptadmin"]);
-</script>
+<script src="../scripts/auth.js"></script>
+<script src="../scripts/vehicles.js"></script>
 
-    <script>renderSessionButtons();</script>
+<script>
+    protectRoute(["operador", "admin"]);
+    renderSessionButtons();
+</script>
 
 </body>
 </html>
