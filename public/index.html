@@ -12,18 +12,24 @@
         #map { flex:1; }
     </style>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
 
-    <div style="position:absolute; top:15px; right:15px; z-index:999;">
+<!-- BOTONES SUPERIORES -->
+<div style="position:absolute; top:15px; right:15px; z-index:999;">
     <button id="btnLogin" onclick="window.location.href='../login.html'"
-        style="padding:8px 15px; background:#444; color:white; border:1px#333; color:white; border:1px solid #666; display:none;">
+        style="padding:8px 15px; background:#444; color:white; border:1px solid #666;">
+        Iniciar sesión
+    </button>
+
+    <button id="btnLogout" onclick="logout()"
+        style="padding:8px 15px; background:#333; color:white; border:1px solid #666; display:none;">
         Cerrar sesión
     </button>
-        
 </div>
+
 <div id="layout">
     <div id="sidebar">
         <h3>Vista Pública</h3>
@@ -33,17 +39,25 @@
     <div id="map"></div>
 </div>
 
+<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Supabase Library -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4"></script>
+
+<!-- Supabase Client -->
 <script src="../scripts/supabaseClient.js"></script>
+
+<!-- Sistema de autenticación -->
 <script src="../scripts/auth.js"></script>
+
+<!-- Sistema de vehículos -->
 <script src="../scripts/vehicles.js"></script>
 
 <script>
     protectRoute(["visor", "admin"]);
+    renderSessionButtons();
 </script>
-    
-<script>renderSessionButtons();</script>
 
 </body>
 </html>
