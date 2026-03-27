@@ -30,25 +30,19 @@
         .vehicle-label-gray { background:#6c757d; }
     </style>
 
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
 
 <div id="layout">
+
     <div id="sidebar">
-
         <h2>Vista Pública</h2>
-
-        <!-- Botón Iniciar sesión -->
-        <button onclick="window.location.href='../login.html'"
-                id="btnLogin"
-                style="padding:8px 12px;background:#444;color:white;borderg:8px 12px;background:#333;color:white;border:1px solid #666;width:100%;margin-top:5px;display:none;">
-            Cerrar sesión
-        </button>
+        <p>Estado en tiempo real de los recursos.</p>
 
         <div id="vehicleList" style="margin-top:20px;"></div>
-
     </div>
 
     <div id="map"></div>
@@ -62,13 +56,7 @@
 
 <!-- Scripts del sistema -->
 <script src="../scripts/supabaseClient.js"></script>
-<script src="../scripts/auth.js"></script>
 <script src="../scripts/vehicles.js"></script>
-
-<script>
-    protectRoute(["visor","admin"]);
-    renderSessionButtons();
-</script>
 
 </body>
 </html>
