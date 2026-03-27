@@ -1,53 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Vista Pública</title>
 
-    <style>
-        body { margin:0; background:#111; color:white; font-family:Arial; }
-        #layout { display:flex; height:100vh; }
-        #sidebar { width:300px; background:#1f1f1f; padding:15px; overflow-y:auto; }
-        #map { flex:1; }
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@ody {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: Arial;
+        }
+        #layout {
+            display: flex;
+            height: 100vh;
+        }
+        #sidebar {
+            width: 300px;
+            background: #1f1f1f;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        #map {
+            flex: 1;
+        }
 
         .vehicle-label {
-            display:inline-block;
-            padding:4px 10px;
-            color:white;
-            font-weight:bold;
-            border-radius:12px;
-            border:1px solid rgba(0,0,0,0.35);
-            box-shadow:0 1px 4px rgba(0,0,0,0.45);
-            white-space:nowrap;
-            font-size:13px;
+            display: inline-block;
+            padding: 4px 10px;
+            color: white;
+            font-weight: bold;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.35);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+            white-space: nowrap;
+            font-size: 13px;
         }
-        .vehicle-label-red { background:#dc3545; }
-        .vehicle-label-yellow { background:#ffc107; color:black; }
-        .vehicle-label-green { background:#28a745; }
-        .vehicle-label-blue { background:#007bff; }
-        .vehicle-label-gray { background:#6c757d; }
-    </style>
 
-    <link rel="stylesheet" href="https://unpkg.comss
+        .vehicle-label-red {
+            background: #dc3545;
+        }
+        .vehicle-label-yellow {
+            background: #ffc107;
+            color: black;
+        }
+        .vehicle-label-green {
+            background: #28a745;
+        }
+        .vehicle-label-blue {
+            background: #007bff;
+        }
+        .vehicle-label-gray {
+            background: #6c757d;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="layout">
+        <div id="sidebar">
+            <h2>Vista Pública</h2>
+            <p>Estado en tiempo real de los recursos.</p>
 
-<div id="layout">
-    <div id="sidebar">
-        <h2>Vista Pública</h2>
-        <p>Estado en tiempo real de los recursos.</p>
+            <div id="vehicleList" style="margin-top: 20px"></div>
+        </div>
 
-        <div id="vehicleList" style="margin-top:20px;"></div>
+        <div id="map"></div>
     </div>
 
-    <div id="map"></div>
-</div>
+    <!-- Leaflet JS -->
+    <script src="https://flet@1.9.4/dist/leaflet.js
 
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
-https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/supabase.js
-../scripts/supabaseClient.jsscript>
-../scripts/vehicles.jsscript>
-
+    <!-- Supabase UMD (FUNCIONA EN GITHUB PAGES) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.4/dist/umd/sup <!-- Scripts de tu sistema (todo OK AQUÍ) -->
+    <script srcsupabaseClient.js</script>
+    <script src="../scripts/vehicles.js"></script>
 </body>
 </html>
